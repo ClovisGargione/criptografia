@@ -1,0 +1,1 @@
+select * from `authorization` a 
