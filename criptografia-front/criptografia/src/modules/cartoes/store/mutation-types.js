@@ -1,0 +1,1 @@
+export const SET_CARTOES = 'CARTOES/SET_CARTOES'
