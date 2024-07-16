@@ -11,6 +11,8 @@ import org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames;
 import org.springframework.security.oauth2.server.authorization.authentication.OAuth2AuthorizationGrantAuthenticationToken;
 import org.springframework.util.StringUtils;
 
+import com.criptografia.CriptografiaService;
+
 public class CustomPasswordGrantAuthenticationToken extends OAuth2AuthorizationGrantAuthenticationToken {
 
 	private static final long serialVersionUID = 1L;
@@ -22,8 +24,8 @@ public class CustomPasswordGrantAuthenticationToken extends OAuth2AuthorizationG
 	protected CustomPasswordGrantAuthenticationToken(String granttype,
 			Authentication clientPrincipal, Map<String, Object> additionalParameters) {
 		super(new AuthorizationGrantType(granttype), clientPrincipal, additionalParameters);
-		this.username = (String) additionalParameters.get(OAuth2ParameterNames.USERNAME);
-		this.password = (String) additionalParameters.get(OAuth2ParameterNames.PASSWORD);
+		this.username = decriptografar((String) additionalParameters.get(OAuth2ParameterNames.USERNAME));
+		this.password = decriptografar((String) additionalParameters.get(OAuth2ParameterNames.PASSWORD));
 		this.accessToken = (String) additionalParameters.get(OAuth2ParameterNames.ACCESS_TOKEN);
 		this.scope = (String) additionalParameters.get(OAuth2ParameterNames.SCOPE);
 		if (this.scope == null) {
@@ -45,6 +47,10 @@ public class CustomPasswordGrantAuthenticationToken extends OAuth2AuthorizationG
 
 	public Set<String> getScope() {
 		return StringUtils.commaDelimitedListToSet(scope.replace(" ", ","));
+	}
+	
+	private String decriptografar(String texto) {
+		return CriptografiaService.decriptografar(texto);
 	}
 
 }

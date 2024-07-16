@@ -2,7 +2,7 @@ import {store} from '../store'
 import * as storage from '../modules/auth/storage'
 
 export default async (to, from, next) => {
-  if (to.name !== 'login' && !store.getters['auth/hasToken']) {
+  if (to.name !== 'login' && to.name !== 'registrar' && !store.getters['auth/hasToken']) {
     try {
       await store.dispatch('auth/ActionCheckToken')
       next()

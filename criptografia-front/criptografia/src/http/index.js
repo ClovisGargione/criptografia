@@ -18,7 +18,7 @@ function getAxios() {
             //window._Vue.$router.push({ name: 'login' })
             return Promise.reject(error.response.data)
         }
-        return Promise.reject(error.message)
+        return Promise.reject(error.response)
     })
     return instance
 }

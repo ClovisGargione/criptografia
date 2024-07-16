@@ -2,8 +2,6 @@ package com.criptografia.domain.usuario;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;

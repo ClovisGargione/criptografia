@@ -87,10 +87,10 @@
 			<version>2.5.0</version>
 		</dependency>
 		<dependency>
-			<groupId>com.oauth2</groupId>
-			<artifactId>oauth2bookserver</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+            <groupId>com.criptografia</groupId>
+            <artifactId>criptografia-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 	</dependencies>
 
 	<build>
